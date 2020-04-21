@@ -6,22 +6,22 @@ import MuiThemeProvider from "@material-ui/core/styles/MuiThemeProvider";
 import Button from '@material-ui/core/Button';
 
 import BeforeAfterSlider from 'react-before-after-slider'
-import placeholder from './placeholder.jpg'
-import images from './images'
-import styles from './styles.module.css'
+import placeholder from '../placeholder.jpg'
+import images from '../images'
+import styles from '../styles.module.css'
 
 class Playground extends Component {
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      index: 0
+    };
+  }
+
 
 render() {
-    state = {
-        index: 0
-      }
-        const {
-                index
-              } = this.state
-              
-              const current = images[index]
+              const current = images[this.state.index]
     
               const aspectRatio = 16 / 9
               const widthC = Math.min(720 - 32, window.innerWidth)
@@ -33,7 +33,7 @@ render() {
               const width = Math.min(widthC, widthR)
               const height = Math.min(heightC, heightR)
           
-              console.log(index, current)
+              console.log(this.state.index, current)
     
               const imageProps = {
                 fallback: placeholder,
